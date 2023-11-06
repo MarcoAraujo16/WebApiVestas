@@ -10,7 +10,7 @@ namespace WebApiVestas
 		public static void Register(HttpConfiguration config)
 		{
 			// Configuração e serviços de API Web
-
+			config.EnableCors();
 			// Rotas de API Web
 			config.MapHttpAttributeRoutes();
 
