@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace WebApiVestas
 {
@@ -10,7 +11,9 @@ namespace WebApiVestas
 		public static void Register(HttpConfiguration config)
 		{
 			// Configuração e serviços de API Web
-			config.EnableCors();
+			var cors = new EnableCorsAttribute("*", "*", "*");
+
+			config.EnableCors(cors);
 			// Rotas de API Web
 			config.MapHttpAttributeRoutes();
 

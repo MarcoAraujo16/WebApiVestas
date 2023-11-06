@@ -185,6 +185,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="BD_persistent\DataLayer_Section.cs" />
+    <Compile Include="Models\NewSection.cs" />
+    <Compile Include="Models\SectionDetails.cs" />
     <Compile Include="Models\SectionRepository.cs" />
     <Compile Include="Controllers\SectionController.cs" />
     <Compile Include="Global.asax.cs">
@@ -192,6 +194,7 @@
     </Compile>
     <Compile Include="Models\ISection.cs" />
     <Compile Include="Models\Section.cs" />
+    <Compile Include="Models\Shell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

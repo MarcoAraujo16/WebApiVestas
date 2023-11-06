@@ -8,7 +8,7 @@ using WebApiVestas.Models;
 
 namespace WebApiVestas.Controllers
 {
-	[EnableCors(origins: "http://localhost,http://locahost:8100,http://localhost:44350", headers: "*", methods: "*", SupportsCredentials = true)]
+	[EnableCors(origins: "*", headers: "*", methods: "*", SupportsCredentials = true)]
 
 	public class SectionController:ApiController
 	{
@@ -17,10 +17,45 @@ namespace WebApiVestas.Controllers
 		public SectionController(ISection repository) { 
 			this.repository = repository;
 		}
+
 		[Route("api/section/getall")]
+		[AcceptVerbs("GET", "POST")]
+
 		public IEnumerable<Section> GetAll()
 		{
 			return repository.GetAll();
+		}
+
+		[Route("api/section/new")]
+		[AcceptVerbs("GET", "POST")]
+
+		public string NewSection(NewSection section)
+		{
+			return repository.NewSection(section);
+		}
+
+		[Route("api/shell/new")]
+		[AcceptVerbs("GET", "POST")]
+
+		public string NewShell(Shell shell)
+		{
+			return repository.NewShell(shell);
+		}
+
+		[Route("api/shell/delete/{sectionID}")]
+		[AcceptVerbs("GET", "POST")]
+
+		public string DeleteShell(int sectionID)
+		{
+			return repository.DeleteSection(sectionID);
+		}
+
+		[Route("api/section/GetSectionDetails/{sectionID}")]
+		[AcceptVerbs("GET", "POST")]
+
+		public SectionDetails GetSectionDetails(int sectionID)
+		{
+			return repository.GetSectionDetails(sectionID);
 		}
 	}
 }
