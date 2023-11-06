@@ -47,10 +47,10 @@ namespace WebApiVestas.BD_persistent
 								list.Add(new Section
 								{
 									partNumber = dataReader.GetString(0),
-									bottomDiam=dataReader.GetDouble(1),
-									topDiam=dataReader.GetDouble(2),
-									height= dataReader.GetDouble(3),
-									mass=dataReader.GetDouble(4)
+									bottomDiam=Convert.ToDouble(dataReader.GetDecimal(1)),
+									topDiam=Convert.ToDouble(dataReader.GetDecimal(2)),
+									height= Convert.ToDouble(dataReader.GetDecimal(3)),
+									mass=Convert.ToDouble(dataReader.GetDecimal(4))
 								});
 							}
 						}
@@ -382,5 +382,63 @@ namespace WebApiVestas.BD_persistent
 
 			return res;
 		}
+
+		//public List<Section> GetSectionByDiam(SearchByDiam searchByDiam, out string erro)
+		//{
+		//	erro = null;
+		//	List<Section> list = new List<Section>();
+		//	if (conn != null)
+		//	{
+		//		try
+		//		{
+		//			conn.Open();
+		//			if (conn.State == ConnectionState.Open)
+		//			{
+		//				using (SqlCommand cmd = new SqlCommand(null, conn))
+		//				{
+		//					cmd.CommandText = "WITH ShellData AS " +
+		//					"(SELECT sh.ref_section AS SectionID,sh.Position,sh.BottomDiam,sh.TopDiam,sh.Height,sh.Mass FROM Shells sh)" +
+		//					" ,ShellMaxPosition AS (SELECT SectionID,MAX(Position) AS MaxPosition FROM ShellData GROUP BY SectionID)" +
+		//					" SELECT s.PartNumber," +
+		//					" MIN(CASE WHEN sd.Position = 1 THEN sd.BottomDiam END) AS BottomDiam," +
+		//					" MAX(CASE WHEN sd.Position = sp.MaxPosition THEN sd.TopDiam END) AS TopDiam," +
+		//					" SUM(sd.Height) AS TotalHeight," +
+		//					" SUM(sd.Mass) AS TotalMass" +
+		//					" FROM Section s" +
+		//					" LEFT JOIN ShellData sd ON s.ID = sd.SectionID" +
+		//					" LEFT JOIN ShellMaxPosition sp ON s.ID = sp.SectionID" +
+		//					" GROUP BY s.PartNumber, sp.MaxPosition;";
+		//					cmd.CommandType = CommandType.Text;
+		//					SqlDataReader dataReader = cmd.ExecuteReader(CommandBehavior.Default);
+		//					while (dataReader.Read())
+		//					{
+		//						list.Add(new Section
+		//						{
+		//							partNumber = dataReader.GetString(0),
+		//							bottomDiam = dataReader.GetDouble(1),
+		//							topDiam = dataReader.GetDouble(2),
+		//							height = dataReader.GetDouble(3),
+		//							mass = dataReader.GetDouble(4)
+		//						});
+		//					}
+		//				}
+		//			}
+		//			else
+		//			{
+		//				erro = "Operation failed";
+		//			}
+		//		}
+		//		catch (Exception ex)
+		//		{
+		//			erro = ex.Message + "[" + ex.StackTrace + "]";
+		//		}
+		//		finally
+		//		{
+		//			conn.Close();
+		//		}
+		//	}
+		//	return list;
+		//}
+
 	}
 }
