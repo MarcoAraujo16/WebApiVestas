@@ -1,14 +1,14 @@
-Instructions to run WebApi
+<h1>Instructions to run WebApi</h1>
 
 The web api, as well as the database, is hosted online, so it does not need to be run on your machine and can be accessed through the following endpoints:
 
-<h1>GetAllSection</h1> (return all the sections): http://marcoaraujo16-001-site1.ftempurl.com/api/section/getall
+<h2>GetAllSection</h2> (return all the sections): http://marcoaraujo16-001-site1.ftempurl.com/api/section/getall
 
-<h1>GetSectionDetails</h1> (return section details and all of his shells by I): http://marcoaraujo16-001-site1.ftempurl.com/api/section/GetSectionDetails/{id}
+<h2>GetSectionDetails</h2> (return section details and all of his shells by I): http://marcoaraujo16-001-site1.ftempurl.com/api/section/GetSectionDetails/{id}
 
-<h1>NewSection</h1> (create a new section with a shell): http://marcoaraujo16-001-site1.ftempurl.com/api/section/new
+<h2>NewSection</h2> (create a new section with a shell): http://marcoaraujo16-001-site1.ftempurl.com/api/section/new
 
-JSON sample to use on Insomnia (for example):
+JSON sample to use on Insomnia (for example):<br>
 <em>
 {
   "partNumber": "796544",
@@ -25,8 +25,8 @@ JSON sample to use on Insomnia (for example):
 }
 </em>
 
-<h1>New Shell</h1> (create a new shell {associated to a section by it's ID} ): http://marcoaraujo16-001-site1.ftempurl.com/api/shell/new
-JSON sample to use on Insomnia (for example):
+<h2>New Shell</h2> (create a new shell {associated to a section by it's ID} ): http://marcoaraujo16-001-site1.ftempurl.com/api/shell/new
+JSON sample to use on Insomnia (for example):<br>
 <em>
   {
 		"position": null,
@@ -40,4 +40,9 @@ JSON sample to use on Insomnia (for example):
 }
 </em>
 
-<h1>Delete Section</h1> (delete section and all of its shells by ID) : http://marcoaraujo16-001-site1.ftempurl.com/api/shell/delete/{id}
+<h2>Delete Section</h2> (delete section and all of its shells by ID) : http://marcoaraujo16-001-site1.ftempurl.com/api/shell/delete/{id}
+
+
+<h1>DATABASE</h1>
+<p>The database used is SQL Server 16 and can be accessed using the following credentials:</p><br>
+<p>Data Source=SQL8006.site4now.net<br>Initial Catalog=db_aa0fd5_vestasex2<br>User Id=db_aa0fd5_vestasex2_admin<br>Password='bdVestas2023'</p>
